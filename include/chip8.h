@@ -29,6 +29,14 @@ class Chip8 {
     // Fetch cycle
     void fetch();
 
+    // Decode cycle
+    uint16_t getNNN();
+    uint8_t getN();
+    uint8_t getX();
+    uint8_t getY();
+    uint8_t getKK();
+    uint8_t getFirstNibble();
+
 public:
 
     Chip8();
