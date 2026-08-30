@@ -46,6 +46,7 @@ class Chip8 {
     void OP_6XKK();
     void OP_7XKK();
     void OP_ANNN();
+    void OP_DXYN();
 
 public:
 
