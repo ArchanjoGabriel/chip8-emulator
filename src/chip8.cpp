@@ -1,5 +1,8 @@
 #include "chip8.h"
 
+#include <stdexcept>
+#include <fstream>
+
 Chip8::Chip8()
     : I(0),
       PC(0x200),
@@ -62,4 +65,34 @@ void Chip8::execute() {
 void Chip8::cycle() {
     fetch();
     execute();
+}
+
+void Chip8::loadROM(const std::string &path) {
+    constexpr uint16_t PROGRAM_START = 0x200;
+
+    std::ifstream file(path, std::ios::binary);
+
+    if (!file)
+    {
+        throw std::runtime_error("Could not open the ROM: " + path);
+    }
+
+    file.seekg(0, std::ios::end);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
+
+    if (size > memory.size() - PROGRAM_START)
+    {
+        throw std::runtime_error("ROM too large for CHIP-8 memory");
+    }
+
+    file.read(
+        reinterpret_cast<char*>(memory.data() + PROGRAM_START),
+        size
+    );
+
+    if (!file)
+    {
+        throw std::runtime_error("Error reading the ROM: " + path);
+    }
 }

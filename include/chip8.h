@@ -2,6 +2,7 @@
 #define CHIP8_EMULATOR_CHIP8_H
 #include <array>
 #include <cstdint>
+#include <string>
 
 class Chip8 {
     // Memory
@@ -52,6 +53,7 @@ public:
 
     Chip8();
     void cycle();
+    void loadROM(const std::string& path);
 };
 
 #endif //CHIP8_EMULATOR_CHIP8_H
