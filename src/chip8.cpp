@@ -42,3 +42,19 @@ uint8_t Chip8::getKK() {
 uint8_t Chip8::getFirstNibble() {
     return (opcode & 0xF000) >> 12;
 }
+
+void Chip8::execute() {
+    switch (getFirstNibble()) {
+        case 0x0:
+            if (opcode == 0x00E0) OP_00E0();
+            break;
+        case 0x1: OP_1NNN();
+            break;
+        case 0x6: OP_6XKK();
+            break;
+        case 0x7: OP_7XKK();
+            break;
+        case 0xA: OP_ANNN();
+            break;
+    }
+}

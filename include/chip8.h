@@ -37,6 +37,16 @@ class Chip8 {
     uint8_t getKK();
     uint8_t getFirstNibble();
 
+    // Execute cycle
+    void execute();
+
+    // Instructions
+    void OP_00E0();
+    void OP_1NNN();
+    void OP_6XKK();
+    void OP_7XKK();
+    void OP_ANNN();
+
 public:
 
     Chip8();
