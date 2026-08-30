@@ -54,6 +54,7 @@ public:
     Chip8();
     void cycle();
     void loadROM(const std::string& path);
+    std::array<uint8_t, 64 * 32> getDisplay();
 };
 
 #endif //CHIP8_EMULATOR_CHIP8_H
