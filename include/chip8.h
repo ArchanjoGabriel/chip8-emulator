@@ -26,6 +26,9 @@ class Chip8 {
     // Display
     std::array<uint8_t, 64 * 32> display;
 
+    // Fetch cycle
+    void fetch();
+
 public:
 
     Chip8();
