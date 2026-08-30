@@ -58,3 +58,8 @@ void Chip8::execute() {
             break;
     }
 }
+
+void Chip8::cycle() {
+    fetch();
+    execute();
+}

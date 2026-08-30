@@ -51,6 +51,7 @@ class Chip8 {
 public:
 
     Chip8();
+    void cycle();
 };
 
 #endif //CHIP8_EMULATOR_CHIP8_H
