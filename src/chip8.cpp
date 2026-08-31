@@ -28,7 +28,9 @@ Chip8::Chip8()
       delay_timer(0),
       sound_timer(0),
       SP(0),
-      opcode(0)
+      opcode(0),
+      rng(std::random_device{}()),
+      dist(0, 255)
 {
     memory.fill(0);
     V.fill(0);
@@ -38,6 +40,11 @@ Chip8::Chip8()
     for (int i = 0; i < 80; i++) {
         memory[0x200+i] = CHIP8_FONTSET[i];
     }
+}
+
+uint8_t Chip8::genRandomNumber() {
+    uint8_t rd = dist(rng);
+    return rd;
 }
 
 void Chip8::fetch() {
@@ -104,7 +111,12 @@ void Chip8::execute() {
             break;
         case 0xA: OP_ANNN();
             break;
+        case 0xB: OP_BNNN();
+            break;
+        case 0xC: OP_CXKK();
+            break;
         case 0xD: OP_DXYN();
+            break;
     }
 }
 

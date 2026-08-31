@@ -128,6 +128,18 @@ void Chip8::OP_ANNN() {
     I = getNNN();
 }
 
+void Chip8::OP_BNNN() {
+    PC = getNNN() + V[0x0];
+}
+
+void Chip8::OP_CXKK() {
+    uint8_t x = getX();
+    uint8_t kk = getKK();
+    uint8_t rd = genRandomNumber();
+
+    V[x] = rd & kk;
+}
+
 void Chip8::OP_DXYN() {
     V[0xF] = 0;
 

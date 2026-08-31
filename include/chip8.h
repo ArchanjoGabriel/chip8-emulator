@@ -2,6 +2,7 @@
 #define CHIP8_EMULATOR_CHIP8_H
 #include <array>
 #include <cstdint>
+#include <random>
 #include <string>
 
 class Chip8 {
@@ -26,6 +27,11 @@ class Chip8 {
 
     // Display
     std::array<uint8_t, 64 * 32> display;
+
+    // Random number generator (RNG)
+    std::mt19937 rng;
+    std::uniform_int_distribution<uint8_t> dist;
+    uint8_t genRandomNumber();
 
     // Fetch cycle
     void fetch();
@@ -62,6 +68,8 @@ class Chip8 {
     void OP_8XYE();
     void OP_9XY0();
     void OP_ANNN();
+    void OP_BNNN();
+    void OP_CXKK();
     void OP_DXYN();
 
 public:
