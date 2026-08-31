@@ -117,6 +117,10 @@ void Chip8::execute() {
             break;
         case 0xD: OP_DXYN();
             break;
+        case 0xE:
+            if (getKK() == 0x9E) OP_EX9E();
+            else if (getKK() == 0xA1) OP_EXA1();
+            break;
         case 0xF:
             if (getKK() == 0x07) OP_FX07();
             else if (getKK() == 0x15) OP_FX15();

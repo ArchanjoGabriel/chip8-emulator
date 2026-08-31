@@ -165,6 +165,26 @@ void Chip8::OP_DXYN() {
     }
 }
 
+void Chip8::OP_EX9E() {
+    uint8_t x = getX();
+    uint8_t key_value = V[x];
+
+    if (key_value < 16) {
+        sf::Keyboard::Key sfml_key = chip8_keymap[key_value];
+        if (sf::Keyboard::isKeyPressed(sfml_key)) PC += 2;
+    }
+}
+
+void Chip8::OP_EXA1() {
+    uint8_t x = getX();
+    uint8_t key_value = V[x];
+
+    if (key_value < 16) {
+        sf::Keyboard::Key sfml_key = chip8_keymap[key_value];
+        if (!sf::Keyboard::isKeyPressed(sfml_key)) PC += 2;
+    }
+}
+
 void Chip8::OP_FX07() {
     uint8_t x = getX();
 

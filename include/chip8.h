@@ -5,6 +5,27 @@
 #include <random>
 #include <string>
 
+#include "SFML/Window/Keyboard.hpp"
+
+constexpr std::array chip8_keymap = {
+    sf::Keyboard::Key::X,    // 0
+    sf::Keyboard::Key::Num1, // 1
+    sf::Keyboard::Key::Num2, // 2
+    sf::Keyboard::Key::Num3, // 3
+    sf::Keyboard::Key::Q,    // 4
+    sf::Keyboard::Key::W,    // 5
+    sf::Keyboard::Key::E,    // 6
+    sf::Keyboard::Key::A,    // 7
+    sf::Keyboard::Key::S,    // 8
+    sf::Keyboard::Key::D,    // 9
+    sf::Keyboard::Key::Z,    // A
+    sf::Keyboard::Key::C,    // B
+    sf::Keyboard::Key::Num4, // C
+    sf::Keyboard::Key::R,    // D
+    sf::Keyboard::Key::F,    // E
+    sf::Keyboard::Key::V     // F
+};
+
 class Chip8 {
     // Memory
     std::array<uint8_t, 4096> memory;
@@ -71,6 +92,8 @@ class Chip8 {
     void OP_BNNN();
     void OP_CXKK();
     void OP_DXYN();
+    void OP_EX9E();
+    void OP_EXA1();
     void OP_FX07();
     void OP_FX15();
     void OP_FX18();
