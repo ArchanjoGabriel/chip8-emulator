@@ -114,6 +114,7 @@ class Chip8 {
     void OP_EX9E();
     void OP_EXA1();
     void OP_FX07();
+    void OP_FX0A();
     void OP_FX15();
     void OP_FX18();
     void OP_FX1E();

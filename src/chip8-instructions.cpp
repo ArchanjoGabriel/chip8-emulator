@@ -191,6 +191,21 @@ void Chip8::OP_FX07() {
     V[x] = delay_timer;
 }
 
+void Chip8::OP_FX0A() {
+    uint8_t x = getX();
+    bool key_pressed = false;
+
+    for (uint8_t i = 0; i < 16; i++) {
+        if (sf::Keyboard::isKeyPressed(chip8_keymap[i])) {
+            V[x] = i;
+            key_pressed = true;
+            break;
+        }
+    }
+
+    if (!key_pressed) PC -= 2;
+}
+
 void Chip8::OP_FX15() {
     uint8_t x = getX();
 
