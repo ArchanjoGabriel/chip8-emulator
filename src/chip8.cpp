@@ -73,8 +73,11 @@ void Chip8::execute() {
     switch (getFirstNibble()) {
         case 0x0:
             if (opcode == 0x00E0) OP_00E0();
+            else if (opcode == 0x00EE) OP_00EE();
             break;
         case 0x1: OP_1NNN();
+            break;
+        case 0x2: OP_2NNN();
             break;
         case 0x6: OP_6XKK();
             break;

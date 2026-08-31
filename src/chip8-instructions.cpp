@@ -4,7 +4,18 @@ void Chip8::OP_00E0() {
     display.fill(0);
 }
 
+void Chip8::OP_00EE() {
+    PC = stack[SP];
+    SP--;
+}
+
 void Chip8::OP_1NNN() {
+    PC = getNNN();
+}
+
+void Chip8::OP_2NNN() {
+    SP++;
+    stack[SP] = PC;
     PC = getNNN();
 }
 

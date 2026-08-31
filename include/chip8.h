@@ -43,7 +43,9 @@ class Chip8 {
 
     // Instructions
     void OP_00E0();
+    void OP_00EE();
     void OP_1NNN();
+    void OP_2NNN();
     void OP_6XKK();
     void OP_7XKK();
     void OP_ANNN();
