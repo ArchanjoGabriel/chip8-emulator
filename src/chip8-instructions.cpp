@@ -214,3 +214,12 @@ void Chip8::OP_FX29() {
 
     I = V[x] * 5;
 }
+
+void Chip8::OP_FX33() {
+    uint8_t x = getX();
+    uint8_t value = V[x];
+
+    memory[I]     = value / 100;
+    memory[I + 1] = (value/10) % 10;
+    memory[I + 2] = value % 10;
+}
