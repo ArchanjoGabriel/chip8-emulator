@@ -78,6 +78,31 @@ void Chip8::OP_8XY3() {
     V[x] ^= V[y];
 }
 
+void Chip8::OP_8XY4() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    uint16_t sum = V[x] + V[y];
+    V[0xF] = (sum > 0xFF) ? 1 : 0;
+    V[x] = sum & 0xFF;
+}
+
+void Chip8::OP_8XY5() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[0xF] = (V[x] > V[y]) ? 1 : 0;
+    V[x] -= V[y];
+}
+
+void Chip8::OP_8XY7() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[0xF] = (V[y] > V[x]) ? 1 : 0;
+    V[x] = V[y] - V[x];
+}
+
 void Chip8::OP_9XY0() {
     uint8_t x = getX();
     uint8_t y = getY();
