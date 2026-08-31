@@ -202,3 +202,15 @@ void Chip8::OP_FX18() {
 
     sound_timer = V[x];
 }
+
+void Chip8::OP_FX1E() {
+    uint8_t x = getX();
+
+    I += V[x];
+}
+
+void Chip8::OP_FX29() {
+    uint8_t x = getX();
+
+    I = V[x] * 5;
+}
