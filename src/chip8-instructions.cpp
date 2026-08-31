@@ -95,6 +95,20 @@ void Chip8::OP_8XY5() {
     V[x] -= V[y];
 }
 
+void Chip8::OP_8XY6() {
+    uint8_t x = getX();
+
+    V[0xF] = (V[x] & 0x1) ? 1 : 0;
+    V[x] >>= 1;
+}
+
+void Chip8::OP_8XYE() {
+    uint8_t x = getX();
+
+    V[0xF] = ((V[x] & 0xF0) >> 7) ? 1 : 0;
+    V[x] <<= 1;
+}
+
 void Chip8::OP_8XY7() {
     uint8_t x = getX();
     uint8_t y = getY();

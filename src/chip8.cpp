@@ -96,7 +96,9 @@ void Chip8::execute() {
             else if (getN() == 0x3) OP_8XY3();
             else if (getN() == 0x4) OP_8XY4();
             else if (getN() == 0x5) OP_8XY5();
+            else if (getN() == 0x6) OP_8XY6();
             else if (getN() == 0x7) OP_8XY7();
+            else if (getN() == 0xE) OP_8XYE();
             break;
         case 0x9: OP_9XY0();
             break;

@@ -57,7 +57,9 @@ class Chip8 {
     void OP_8XY3();
     void OP_8XY4();
     void OP_8XY5();
+    void OP_8XY6();
     void OP_8XY7();
+    void OP_8XYE();
     void OP_9XY0();
     void OP_ANNN();
     void OP_DXYN();
