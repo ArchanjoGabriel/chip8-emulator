@@ -50,6 +50,34 @@ void Chip8::OP_7XKK() {
     V[x] += getKK();
 }
 
+void Chip8::OP_8XY0() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[x] = V[y];
+}
+
+void Chip8::OP_8XY1() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[x] |= V[y];
+}
+
+void Chip8::OP_8XY2() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[x] &= V[y];
+}
+
+void Chip8::OP_8XY3() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    V[x] ^= V[y];
+}
+
 void Chip8::OP_9XY0() {
     uint8_t x = getX();
     uint8_t y = getY();
