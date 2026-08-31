@@ -8,6 +8,8 @@ constexpr int WIDTH = 64;
 constexpr int HEIGHT = 32;
 constexpr int SCALE = 20;
 
+constexpr int CPU_CYCLE_PER_FRAME = 10;
+
 int main(int argc, char *argv[]) {
     if (argc != 2)
         throw std::runtime_error("Invalid number of arguments");
@@ -32,7 +34,11 @@ int main(int argc, char *argv[]) {
                 window.close();
         }
 
-        chip8.cycle();
+
+        for (int i = 0; i < CPU_CYCLE_PER_FRAME; i++) {
+            chip8.cycle();
+        }
+
         auto display = chip8.getDisplay();
         chip8.updateDelayTimer();
         chip8.updateSoundTimer();
