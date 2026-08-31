@@ -109,6 +109,8 @@ void Chip8::execute() {
             else if (getKK() == 0x1E) OP_FX1E();
             else if (getKK() == 0x29) OP_FX29();
             else if (getKK() == 0x33) OP_FX33();
+            else if (getKK() == 0x55) OP_FX55();
+            else if (getKK() == 0x65) OP_FX65();
             break;
     }
 }

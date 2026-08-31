@@ -119,6 +119,8 @@ class Chip8 {
     void OP_FX1E();
     void OP_FX29();
     void OP_FX33();
+    void OP_FX55();
+    void OP_FX65();
 
 public:
 
