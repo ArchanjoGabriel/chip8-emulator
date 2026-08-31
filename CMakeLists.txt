@@ -27,3 +27,9 @@ target_include_directories(chip8_emulator
         PRIVATE
             include
 )
+
+add_custom_command(TARGET chip8_emulator POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/roms
+    $<TARGET_FILE_DIR:chip8_emulator>/roms
+)
