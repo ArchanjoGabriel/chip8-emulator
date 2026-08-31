@@ -1,6 +1,6 @@
 # CHIP-8 Emulator
 
-A small CHIP-8 emulator written in modern C++ as a portfolio project.
+A CHIP-8 emulator written in modern C++20, built from scratch to explore emulation, computer architecture and low-level programming.
 
 The project currently implements the core emulator structure, ROM loading, a basic fetch/decode/execute cycle, and SFML-based rendering for the classic CHIP-8 64x32 monochrome display.
 
