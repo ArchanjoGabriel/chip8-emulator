@@ -34,6 +34,8 @@ int main(int argc, char *argv[]) {
 
         chip8.cycle();
         auto display = chip8.getDisplay();
+        chip8.updateDelayTimer();
+        chip8.updateSoundTimer();
 
         window.clear(sf::Color::Black);
 

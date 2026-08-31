@@ -71,6 +71,9 @@ class Chip8 {
     void OP_BNNN();
     void OP_CXKK();
     void OP_DXYN();
+    void OP_FX07();
+    void OP_FX15();
+    void OP_FX18();
 
 public:
 
@@ -78,6 +81,8 @@ public:
     void cycle();
     void loadROM(const std::string& path);
     std::array<uint8_t, 64 * 32> getDisplay();
+    void updateDelayTimer();
+    void updateSoundTimer();
 };
 
 #endif //CHIP8_EMULATOR_CHIP8_H

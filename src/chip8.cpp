@@ -117,6 +117,11 @@ void Chip8::execute() {
             break;
         case 0xD: OP_DXYN();
             break;
+        case 0xF:
+            if (getKK() == 0x07) OP_FX07();
+            else if (getKK() == 0x15) OP_FX15();
+            else if (getKK() == 0x18) OP_FX18();
+            break;
     }
 }
 
@@ -157,4 +162,12 @@ void Chip8::loadROM(const std::string &path) {
 
 std::array<uint8_t, 64 * 32> Chip8::getDisplay() {
     return display;
+}
+
+void Chip8::updateDelayTimer() {
+    if (delay_timer > 0) delay_timer--;
+}
+
+void Chip8::updateSoundTimer() {
+    if (sound_timer > 0) sound_timer--;
 }

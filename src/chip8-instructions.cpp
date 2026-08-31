@@ -164,3 +164,21 @@ void Chip8::OP_DXYN() {
         }
     }
 }
+
+void Chip8::OP_FX07() {
+    uint8_t x = getX();
+
+    V[x] = delay_timer;
+}
+
+void Chip8::OP_FX15() {
+    uint8_t x = getX();
+
+    delay_timer = V[x];
+}
+
+void Chip8::OP_FX18() {
+    uint8_t x = getX();
+
+    sound_timer = V[x];
+}
