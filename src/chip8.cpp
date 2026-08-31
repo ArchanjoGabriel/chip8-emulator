@@ -79,9 +79,17 @@ void Chip8::execute() {
             break;
         case 0x2: OP_2NNN();
             break;
+        case 0x3: OP_3XKK();
+            break;
+        case 0x4: OP_4XKK();
+            break;
+        case 0x5: OP_5XY0();
+            break;
         case 0x6: OP_6XKK();
             break;
         case 0x7: OP_7XKK();
+            break;
+        case 0x9: OP_9XY0();
             break;
         case 0xA: OP_ANNN();
             break;

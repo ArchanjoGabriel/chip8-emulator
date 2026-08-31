@@ -19,6 +19,27 @@ void Chip8::OP_2NNN() {
     PC = getNNN();
 }
 
+void Chip8::OP_3XKK() {
+    uint8_t x = getX();
+    uint8_t kk = getKK();
+
+    if (V[x] == kk) PC += 2;
+}
+
+void Chip8::OP_4XKK() {
+    uint8_t x = getX();
+    uint8_t kk = getKK();
+
+    if (V[x] != kk) PC += 2;
+}
+
+void Chip8::OP_5XY0() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    if (V[x] == V[y]) PC += 2;
+}
+
 void Chip8::OP_6XKK() {
     uint8_t x = getX();
     V[x] = getKK();
@@ -27,6 +48,13 @@ void Chip8::OP_6XKK() {
 void Chip8::OP_7XKK() {
     uint8_t x = getX();
     V[x] += getKK();
+}
+
+void Chip8::OP_9XY0() {
+    uint8_t x = getX();
+    uint8_t y = getY();
+
+    if (V[x] != V[y]) PC += 2;
 }
 
 void Chip8::OP_ANNN() {
